@@ -1,14 +1,14 @@
-public class Insertion {
+public class Insertion <E extends Comparable<E>> implements Sort<E>{
 
-    public void sort(int[] listOfNumbers) {
-        for (int i = 1; i < listOfNumbers.length; i++) {
-            int value = listOfNumbers[i];
+    public void sort(E[] list) {
+        for (int i = 1; i < list.length; i++) {
+            E value = list[i];
             int j = i;
-            while ((j > 0) && (listOfNumbers[j - 1] > value)) {
-                listOfNumbers[j] = listOfNumbers[j - 1];
+            while ((j > 0) && (list[j - 1].compareTo(value)) > 0) {
+                list[j] = list[j - 1];
                 j--;
             }
-            listOfNumbers[j] = value;
+            list[j] = value;
         }
     }
 }
